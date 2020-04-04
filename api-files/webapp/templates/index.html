@@ -1,0 +1,16 @@
+{%extends 'base.html'%}
+
+{%block head%}
+<h2>Hello Mate</h2>
+{%endblock%}
+
+{%block body%}
+
+{% for store in stores%}
+        
+<h2>{{store._storename}}</h2>
+        
+
+{%endfor%}
+
+{%endblock%}

@@ -42,8 +42,6 @@ while(True):
         peopleCounter += 1
         print("people counter : "  + str(peopleCounter))
 
-        
-    
     # Write the output video 
     out.write(frame.astype('uint8'))
     # Display the resulting frame
