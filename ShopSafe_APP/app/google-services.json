@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "328528070424",
+    "firebase_url": "https://shop-safe-41c00.firebaseio.com",
+    "project_id": "shop-safe-41c00",
+    "storage_bucket": "shop-safe-41c00.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:328528070424:android:63f43b4cec4dae5376406d",
+        "android_client_info": {
+          "package_name": "com.example.shopsafe"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "328528070424-a7rpkds6f0f2ll1t6ek36ea2v0kdatdl.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCYTJqfs59YrQI5fcyBNLAPRoxoTM96Nuo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "328528070424-a7rpkds6f0f2ll1t6ek36ea2v0kdatdl.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

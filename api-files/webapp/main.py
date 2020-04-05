@@ -11,39 +11,39 @@ db = firestore.client()
 allStores = []
 store_ref = db.collection("Stores")
 
-
 @app.route('/',methods=["GET"])
 def index():
     docs = store_ref.stream()
     _stores = [doc.to_dict() for doc in docs]
-    return render_template('index.html',stores = _stores)
+    _ids = [doc.id for doc in docs]
+    print(_ids)
+    return render_template('index.html',ids = _ids ,stores = _stores)
 
 @app.route('/addStore',methods=["GET","POST"])
 def addStore():
     if request.method == "POST":
-
         #get from the form
-        storename = request.form['storename']
-        numberOfCashiers = int(request.form['numberOfCashiers'])
-        openingHours = request.form["openingHours"]
-        closingHours = request.form["closingHours"]
-        numberOfWorkers = int(request.form["numberOfWorkers"])
-        numberOfSecurityCameras = int(request.form["numberOfSecurityCameras"])
-        latitude = float(request.form["latitude"])
-        longtitude = float(request.form['longtitude'])
+        # storename = request.form['storename']
+        # numberOfCashiers = int(request.form['numberOfCashiers'])
+        # openingHours = request.form["openingHours"]
+        # closingHours = request.form["closingHours"]
+        # numberOfWorkers = int(request.form["numberOfWorkers"])
+        # numberOfSecurityCameras = int(request.form["numberOfSecurityCameras"])
+        # latitude = float(request.form["latitude"])
+        # longtitude = float(request.form['longtitude'])
 
         #local array
-        new_store = Store(storename,numberOfCashiers,openingHours,closingHours,numberOfWorkers,numberOfSecurityCameras,latitude,longtitude)
+        # new_store = Store(storename,numberOfCashiers,openingHours,closingHours,numberOfWorkers,numberOfSecurityCameras,latitude,longtitude)
         
         #add to the database
         
         store_ref.document().set({
-            'storename': storename,
-            'numberOfCashiers' : numberOfCashiers,
-            'openingHour' : openingHours,
-            'closingHour' : closingHours,
-            'numberOfEmployees' : numberOfWorkers,
-            'numberOfSecurityCameras' : numberOfSecurityCameras,
+            'storename': request.form['storename'],
+            'numberOfCashiers' : int(request.form['numberOfCashiers']),
+            'openingHour' : request.form["openingHours"],
+            'closingHour' : request.form["closingHours"],
+            'numberOfEmployees' : int(request.form["numberOfWorkers"]),
+            'numberOfSecurityCameras' :  int(request.form["numberOfSecurityCameras"]),
             'location': firestore.GeoPoint(latitude,longtitude),
             'que': new_store._que
         })
@@ -52,6 +52,11 @@ def addStore():
         pass
     return render_template('addStores.html')
 
+@app.route('/store',methods=['GET','POST'])
+def storeDetail():
+    
+
+    return render_template('store.html')
 
 @app.route('/addToQue/<storeId>/<personID>',methods=["GET","POST"])
 def addToQue(storeId,personID):
