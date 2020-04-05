@@ -1,16 +1,26 @@
 {%extends 'base.html'%}
 
 {%block head%}
-<h2>Hello Mate</h2>
+
 {%endblock%}
 
 {%block body%}
-
-{% for store in stores%}
-        
-<h2>{{store._storename}}</h2>
-        
-
-{%endfor%}
+<div class="container">
+    <h2>Stores</h2>
+    <table>
+        {% for store in stores%}
+        <tr style="border: 1px solid black;">
+            <td>Storename : {{ store.storename}}</td>
+            <td>Number Of Cashiers : {{ store.numberOfCashiers}}</td>
+            <td>Opening Hour : {{ store.openingHour}}</td>
+            <td>Closing Hour : {{ store.closingHour}}</td>
+            <td>Number of employees : {{ store.numberOfEmployees}}</td>
+            <td>Number of security cameras : {{ store.numberOfSecurityCameras}}</td>
+            <td>Location : {{ store.location}}</td>
+        </tr>
+        {%endfor%}
+    </table>
+    <a href="/addStore" >Add Store</a>
+</div>
 
 {%endblock%}
