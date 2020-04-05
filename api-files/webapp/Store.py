@@ -1,4 +1,3 @@
-from Que import LinkedList,Node
 
 class Store:
     def __init__(self, storename : str, numberOfCashiers : int, openingHour : str, closingHour : str, numberOfEmployees : int,
@@ -22,6 +21,5 @@ class Store:
     def __str__(self):
         return ""
 
-    # def toDict(self):
         
 
